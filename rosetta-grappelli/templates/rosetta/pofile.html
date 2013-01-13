@@ -1,4 +1,5 @@
 {% extends "rosetta/base.html" %}
+{% load url from future %}
 {% load rosetta i18n %}
 
 {% block title %}{{block.super}} - {{MESSAGES_SOURCE_LANGUAGE_NAME}} - {{rosetta_i18n_lang_name}} ({{ rosetta_i18n_pofile.percent_translated|floatformat:0 }}%){% endblock %}
@@ -30,7 +31,7 @@
     <header style="display:none"><h1>Breadcrumbs</h1></header>
     <ul class="grp-horizontal-list">
         <li><a href="/admin/">{% trans "Home" %}</a></li>
-        <li><a href="{% url rosetta-pick-file %}">Rosetta</a></li>
+        <li><a href="{% url 'rosetta-pick-file' %}">Rosetta</a></li>
         <li>{{ rosetta_i18n_lang_name }}</li>
         <li>{{ rosetta_i18n_app|title }}</li>
         <li>{% blocktrans with rosetta_i18n_pofile.percent_translated|floatformat:2 as percent_translated  %}Progress: {{ percent_translated }}%{% endblocktrans %}</li>
@@ -46,8 +47,8 @@
 
 {% block object-tools %}
 <ul class="grp-object-tools">
-    <li><a href="{% url rosetta-pick-file %}" class="focus">{% trans "Pick another file" %}</a></li>
-        <li><a href="{% url rosetta-download-file %}">{% trans "Download this catalog" %}</a></li>
+    <li><a href="{% url 'rosetta-pick-file' %}" class="focus">{% trans "Pick another file" %}</a></li>
+        <li><a href="{% url 'rosetta-download-file' %}">{% trans "Download this catalog" %}</a></li>
 </ul>
 {% endblock %}
 
