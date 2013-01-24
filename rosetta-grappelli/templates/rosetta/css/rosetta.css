@@ -1,5 +1,6 @@
 #user-tools p span { margin-left:2em; }
 table{width:100%;}
+.grp-module table{border:1px solid transparent; border-collapse:collapse;}
 td.translation label {font-size: 95%;}
 td.translation textarea, td.original { font-size:110%;}
 td.translation,td.original {width:30%;}
