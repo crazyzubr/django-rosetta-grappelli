@@ -102,12 +102,12 @@ msgstr ""
 #: templates/rosetta/pofile.html:7
 #, python-format
 msgid "to %(rosetta_i18n_lang_name)s"
-msgstr ""
+msgstr "%(rosetta_i18n_lang_name)s"
 
 #: templates/rosetta/pofile.html:37
 #, python-format
 msgid "Progress: %(percent_translated)s%%"
-msgstr ""
+msgstr "Hotovo: %(percent_translated)s%%"
 
 #: templates/rosetta/pofile.html:41
 msgid "File is read-only: download the file when done editing!"
