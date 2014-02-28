@@ -2,7 +2,7 @@
 {% load url from future %}
 {% load i18n %}
 
-{% block title %}Rosetta{% endblock %}
+{% block title %}{% trans "Rosetta" %}{% endblock %}
 
 {% block extrastyle %}
 <style type="text/css" media="screen">
@@ -31,20 +31,20 @@
 	<header style="display:none"><h1>Breadcrumbs</h1></header>
 	<ul class="grp-horizontal-list">
 		<li><a href="{% url 'admin:index' %}">{% trans 'Home' %}</a></li>
-		<li>Rosetta</li>
+		<li>{% trans "Rosetta" %}</li>
 	</ul>
 </nav>
 
 {% endblock %}
 
 {% block content_title %}
-<h1 id="site-name"><a href="{% url 'rosetta-pick-file' %}">Rosetta</a> {% block content_subtitle %}{% endblock %}</h1>
+<h1 id="site-name"><a href="{% url 'rosetta-pick-file' %}">{% trans "Rosetta" %}</a> {% block content_subtitle %}{% endblock %}</h1>
 {% endblock %}
 
 
 {% block content %}
 {% block main %}{% endblock %}
 <div id="rosetta-version">
-    <a href="http://code.google.com/p/django-rosetta">Rosetta</a> <span class="version">{{version}}</span>
+    <a href="http://code.google.com/p/django-rosetta">{% trans "Rosetta" %}</a> <span class="version">{{version}}</span>
 </div>
 {% endblock %}
