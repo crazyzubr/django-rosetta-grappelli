@@ -55,7 +55,7 @@
 {% block main %}
 <div class="grp-module grp-changelist-filters">
     <div class="grp-row">
-        <div class="l-2cr-fluid l-d-12">
+        <div class="l-2cr-fluid l-d-18">
             <aside class="c-1">
                 <!-- SEARCH -->
                 <div class="g-d-6" id="search">
@@ -66,6 +66,17 @@
                         <button class="grp-search-button" value="" type="submit">&nbsp;</button>
                     </form>
                 </div>
+                {% if rosetta_settings.ENABLE_REFLANG %}
+                <div class="g-d-6">
+                    <select class="grp-filter-choice" onchange="javascript:window.location.href = this.value;">
+                        <option{% ifequal ref_lang 'msgid' %} selected="selected"{% endifequal %} value="{% url 'rosetta-reference-selection' langid='msgid' %}">{% trans "From original language" %}</option>
+                        {% for langid, langname in LANGUAGES %}
+                        <option{% ifequal ref_lang langid %} selected="selected"{% endifequal %} value="{% url 'rosetta-reference-selection' langid=langid %}">{% trans "From language" %} {{langname}}</option>
+
+                        {% endfor %}
+                    </select>
+                </div>
+                {% endif %}
                 <!-- FILTERS -->
                 <div class="filter g-d-6 g-d-l" id="filters">
                     <div class="grp-pulldown-container">
@@ -166,7 +177,11 @@
                             </td>
                         {% else %}
                             <td class="original">
+                            {% if rosetta_settings.ENABLE_REFLANG %}
+                               <span class="message">{{ message.ref_txt|format_message|linebreaksbr }}</span>
+                            {% else %}
                                 <span class="message">{{ message.msgid|format_message|linebreaksbr }}</span>
+                            {% endif %}
                             {% if message.msgctxt %}
                                 <span class="context">{% trans "Contextual hint" %}: "{{message.msgctxt}}"</span>
                                 {% else %}

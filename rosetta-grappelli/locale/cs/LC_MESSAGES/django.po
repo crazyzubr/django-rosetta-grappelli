@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-28 11:07+0100\n"
+"POT-Creation-Date: 2014-12-15 23:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: templates/rosetta/base.html:5 templates/rosetta/base.html.py:34
+#: templates/rosetta/base.html:41 templates/rosetta/base.html.py:48
+#: templates/rosetta/languages.html:14 templates/rosetta/pofile.html:34
+msgid "Rosetta"
+msgstr ""
 
 #: templates/rosetta/base.html:33 templates/rosetta/languages.html:13
 #: templates/rosetta/pofile.html:33
@@ -34,65 +40,45 @@ msgid_plural "%(counter)s languages"
 msgstr[0] "%(counter)s jazyk"
 msgstr[1] "%(counter)s jazyky"
 
-#: templates/rosetta/languages.html:52 templates/rosetta/pofile.html:105
-msgid "Filter"
-msgstr ""
-
-#: templates/rosetta/languages.html:55 templates/rosetta/pofile.html:108
-msgid "status"
-msgstr " "
-
-#: templates/rosetta/languages.html:57
-msgid "Project"
-msgstr ""
-
-#: templates/rosetta/languages.html:58
-msgid "Third party"
-msgstr ""
-
-#: templates/rosetta/languages.html:60 templates/rosetta/pofile.html:113
-msgid "All"
-msgstr ""
-
-#: templates/rosetta/languages.html:80
+#: templates/rosetta/languages.html:81
 msgid "Application"
 msgstr ""
 
-#: templates/rosetta/languages.html:81
+#: templates/rosetta/languages.html:82
 msgid "Progress"
 msgstr ""
 
-#: templates/rosetta/languages.html:82
+#: templates/rosetta/languages.html:83
 msgid "Messages"
 msgstr ""
 
-#: templates/rosetta/languages.html:83
+#: templates/rosetta/languages.html:84
 msgid "Translated"
 msgstr ""
 
-#: templates/rosetta/languages.html:84 templates/rosetta/pofile.html:140
+#: templates/rosetta/languages.html:85 templates/rosetta/pofile.html:151
 msgid "Fuzzy"
 msgstr ""
 
-#: templates/rosetta/languages.html:85
+#: templates/rosetta/languages.html:86
 msgid "Obsolete"
 msgstr ""
 
-#: templates/rosetta/languages.html:86
+#: templates/rosetta/languages.html:87
 msgid "File"
 msgstr ""
 
-#: templates/rosetta/languages.html:109
+#: templates/rosetta/languages.html:110
 msgid "Nothing to translate!"
 msgstr ""
 
-#: templates/rosetta/languages.html:110
+#: templates/rosetta/languages.html:111
 msgid ""
 "You haven't specified any languages in your settings file, or haven't yet "
 "generated a batch of translation catalogs."
 msgstr ""
 
-#: templates/rosetta/languages.html:111
+#: templates/rosetta/languages.html:112
 #, python-format
 msgid ""
 "Please refer to <a href=\"%(i18n_doc_link)s\">Django's I18N documentation</"
@@ -127,62 +113,82 @@ msgstr ""
 msgid "Download this catalog"
 msgstr ""
 
-#: templates/rosetta/pofile.html:66 templates/rosetta/pofile.html.py:211
+#: templates/rosetta/pofile.html:72
+msgid "From original language"
+msgstr "Z originálu"
+
+#: templates/rosetta/pofile.html:74
+msgid "From language"
+msgstr "Z překladu:"
+
+#: templates/rosetta/pofile.html:83
+msgid "Filter"
+msgstr ""
+
+#: templates/rosetta/pofile.html:86
+msgid "status"
+msgstr " "
+
+#: templates/rosetta/pofile.html:88
+msgid "Untranslated only"
+msgstr ""
+
+#: templates/rosetta/pofile.html:89
+msgid "Translated only"
+msgstr ""
+
+#: templates/rosetta/pofile.html:90
+msgid "Fuzzy only"
+msgstr ""
+
+#: templates/rosetta/pofile.html:91
+msgid "All"
+msgstr ""
+
+#: templates/rosetta/pofile.html:105 templates/rosetta/pofile.html.py:226
 #, python-format
 msgid "%(counter)s result"
 msgid_plural "%(counter)s results"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/rosetta/pofile.html:72 templates/rosetta/pofile.html.py:217
+#: templates/rosetta/pofile.html:111 templates/rosetta/pofile.html.py:232
 #, python-format
 msgid "%(counter)s total"
 msgstr ""
 
-#: templates/rosetta/pofile.html:110
-msgid "Untranslated only"
-msgstr ""
-
-#: templates/rosetta/pofile.html:111
-msgid "Translated only"
-msgstr ""
-
-#: templates/rosetta/pofile.html:112
-msgid "Fuzzy only"
-msgstr ""
-
-#: templates/rosetta/pofile.html:134
+#: templates/rosetta/pofile.html:145
 msgid "Original"
 msgstr ""
 
-#: templates/rosetta/pofile.html:141
+#: templates/rosetta/pofile.html:152
 msgid "Occurrences(s)"
 msgstr ""
 
-#: templates/rosetta/pofile.html:154 templates/rosetta/pofile.html.py:157
-#: templates/rosetta/pofile.html:174
+#: templates/rosetta/pofile.html:165 templates/rosetta/pofile.html.py:168
+#: templates/rosetta/pofile.html:189
 msgid "Context hint"
 msgstr ""
 
-#: templates/rosetta/pofile.html:171
+#: templates/rosetta/pofile.html:186
 msgid "Contextual hint"
 msgstr ""
 
-#: templates/rosetta/pofile.html:181
+#: templates/rosetta/pofile.html:195
 msgid "suggest"
 msgstr ""
 
-#: templates/rosetta/pofile.html:192
+#: templates/rosetta/pofile.html:207
 #, python-format
 msgid "%(more_count)s more"
 msgid_plural "%(more_count)s more"
 msgstr[0] ""
 msgstr[1] ""
 
-#: templates/rosetta/pofile.html:245
+#: templates/rosetta/pofile.html:260
 msgid "translated"
 msgstr ""
 
-#: templates/rosetta/pofile.html:249
+#: templates/rosetta/pofile.html:264
 msgid "Save and translate next block"
 msgstr ""
