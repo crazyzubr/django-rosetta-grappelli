@@ -55,8 +55,36 @@
 {% block main %}
 <div class="grp-module grp-changelist-filters">
     <div class="grp-row">
-        <div class="g-d-c-fluid">
-            <div class="g-d-fluid">
+        <div class="l-2cr-fluid l-d-12">
+            <aside class="c-1">
+                <!-- SEARCH -->
+                <div class="g-d-6" id="search">
+                    <!-- Search Form -->
+                    <form method="post" action="" id="grp-changelist-search">
+                        {% rosetta_csrf_token %}
+                        <input type="text" value="{% if query %}{{query}}{% endif %}" id="searchbar" class="grp-search-field grp-form-field-contained" name="query">
+                        <button class="grp-search-button" value="" type="submit">&nbsp;</button>
+                    </form>
+                </div>
+                <!-- FILTERS -->
+                <div class="filter g-d-6 g-d-l" id="filters">
+                    <div class="grp-pulldown-container">
+                        <a class="grp-button grp-pulldown-handler" href="javascript://">{% trans "Filter" %}</a>
+                        <ul class="grp-pulldown-content" style="display: none">
+                            <li>
+                                <label>{% trans "status" %}</label>
+                                <select class="grp-filter-choice">
+                                    <option value="?filter=untranslated" {% ifequal rosetta_i18n_filter 'untranslated' %}selected="selected"{% endifequal %}>{% trans "Untranslated only" %}</option>
+                                    <option value="?filter=translated" {% ifequal rosetta_i18n_filter 'translated' %}selected="selected"{% endifequal %}>{% trans "Translated only" %}</option>
+                                    <option value="?filter=fuzzy" {% ifequal rosetta_i18n_filter 'fuzzy' %}selected="selected"{% endifequal %}>{% trans "Fuzzy only" %}</option>
+                                    <option value="?filter=all" {% ifequal rosetta_i18n_filter 'all' %}selected="selected"{% endifequal %}>{% trans "All" %}</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+            <div class="c-2">
                 <!-- PAGINATION TOP -->
                 <nav class="grp-pagination">
                     {% with paginator.object_list|length as hits %}
@@ -89,34 +117,6 @@
                     {% endwith %}
                 </nav>
             </div>
-            <aside class="g-d-12 g-d-l">
-                <!-- SEARCH -->
-                <div class="g-d-6" id="search">
-                    <!-- Search Form -->
-                    <form method="post" action="" id="grp-changelist-search">
-                        {% rosetta_csrf_token %}
-                        <input type="text" value="{% if query %}{{query}}{% endif %}" id="searchbar" class="grp-search-field grp-form-field-contained" name="query">
-                        <button class="grp-search-button" value="" type="submit">&nbsp;</button>
-                    </form>
-                </div>
-                <!-- FILTERS -->
-                <div class="filter g-d-6 g-d-l" id="filters">
-                    <div class="grp-pulldown-container">
-                        <a class="grp-button grp-pulldown-handler" href="javascript://">{% trans "Filter" %}</a>
-                        <ul class="grp-pulldown-content" style="display: none">
-                            <li>
-                                <label>{% trans "status" %}</label>
-                                <select class="grp-filter-choice">
-                                    <option value="?filter=untranslated" {% ifequal rosetta_i18n_filter 'untranslated' %}selected="selected"{% endifequal %}>{% trans "Untranslated only" %}</option>
-                                    <option value="?filter=translated" {% ifequal rosetta_i18n_filter 'translated' %}selected="selected"{% endifequal %}>{% trans "Translated only" %}</option>
-                                    <option value="?filter=fuzzy" {% ifequal rosetta_i18n_filter 'fuzzy' %}selected="selected"{% endifequal %}>{% trans "Fuzzy only" %}</option>
-                                    <option value="?filter=all" {% ifequal rosetta_i18n_filter 'all' %}selected="selected"{% endifequal %}>{% trans "All" %}</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </aside>
         </div>
     </div>
 </div>
@@ -177,8 +177,8 @@
                             </td>
                             {% if main_language %}<td class="original">{{ message.main_lang|format_message|linebreaksbr }}</td>{% endif %}
                             <td class="translation">
+                                {% if rosetta_settings.ENABLE_TRANSLATION_SUGGESTIONS %}<a href="#" class="suggest" title="{% trans "suggest" %}">{% trans "suggest" %}</a>{% endif %}
                                 <textarea rows="{{message.msgid|format_message|lines_count}}" cols="40" name="m_{{message.md5hash}}" tabindex="{% increment tab_idx %}">{{message.msgstr}}</textarea>
-                                {% if rosetta_settings.ENABLE_TRANSLATION_SUGGESTIONS %}<a href="#" class="suggest">{% trans "suggest" %}</a>{% endif %}
                             </td>
                         {% endif %}
                             <td class="c">
