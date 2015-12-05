@@ -37,7 +37,7 @@
         <li>{% blocktrans with rosetta_i18n_pofile.percent_translated|floatformat:2 as percent_translated  %}Progress: {{ percent_translated }}%{% endblocktrans %}</li>
     </ul>
 </nav>
-
+t
     {% if not rosetta_i18n_write %}<p class="errornote read-only">{% trans "File is read-only: download the file when done editing!" %}</p>{% endif %}
     {% if rosetta_last_save_error %}<p class="errornote save-conflict">{% trans "Some items in your last translation block couldn't be saved: this usually happens when the catalog file changes on disk after you last loaded it." %}</p>{% endif %}
 {% endblock %}
@@ -107,7 +107,7 @@
                         </li>
                         {% if not needs_pagination %}
                         <li class="grp-results">
-                            <a href="?" class="total">
+                            <a href="?filter=all" class="total">
                                 {% blocktrans with counter=rosetta_i18n_pofile|length %}{{ counter }} total{% endblocktrans %}
                             </a>
                         </li>
@@ -228,7 +228,7 @@
                         </li>
                         {% if not needs_pagination %}
                         <li class="grp-results">
-                            <a href="?" class="total">
+                            <a href="?filter=all" class="total">
                                 {% blocktrans with counter=rosetta_i18n_pofile|length %}{{ counter }} total{% endblocktrans %}
                             </a>
                         </li>
