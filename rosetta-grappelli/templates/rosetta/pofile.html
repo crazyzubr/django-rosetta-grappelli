@@ -77,20 +77,24 @@
                 </div>
                 {% endif %}
                 <!-- FILTERS -->
-                <div class="filter g-d-6 g-d-l" id="filters">
-                    <div class="grp-pulldown-container">
-                        <a class="grp-button grp-pulldown-handler" href="javascript://">{% trans "Filter" %}</a>
-                        <ul class="grp-pulldown-content" style="display: none">
-                            <li>
-                                <label>{% trans "status" %}</label>
-                                <select class="grp-filter-choice">
-                                    <option value="?filter=untranslated" {% ifequal rosetta_i18n_filter 'untranslated' %}selected="selected"{% endifequal %}>{% trans "Untranslated only" %}</option>
-                                    <option value="?filter=translated" {% ifequal rosetta_i18n_filter 'translated' %}selected="selected"{% endifequal %}>{% trans "Translated only" %}</option>
-                                    <option value="?filter=fuzzy" {% ifequal rosetta_i18n_filter 'fuzzy' %}selected="selected"{% endifequal %}>{% trans "Fuzzy only" %}</option>
-                                    <option value="?filter=all" {% ifequal rosetta_i18n_filter 'all' %}selected="selected"{% endifequal %}>{% trans "All" %}</option>
-                                </select>
-                            </li>
-                        </ul>
+                <div id="grp-filters" class="g-d-6 g-d-l">
+                    <div class="grp-filter">
+                        <div class="grp-pulldown-container grp-pulldown-state-open">
+                            <a class="grp-button grp-pulldown-handler" href="javascript://">{% trans "Filter" %}</a>
+                            <div class="grp-pulldown-content" style="">
+                                <div class="grp-module">
+                                    <div class="grp-row">
+                                        <label>{% trans "Status" %}</label>
+                                        <select class="grp-filter-choice">
+                                            <option value="?filter=untranslated" {% ifequal rosetta_i18n_filter 'untranslated' %}selected="selected"{% endifequal %}>{% trans "Untranslated only" %}</option>
+                                            <option value="?filter=translated" {% ifequal rosetta_i18n_filter 'translated' %}selected="selected"{% endifequal %}>{% trans "Translated only" %}</option>
+                                            <option value="?filter=fuzzy" {% ifequal rosetta_i18n_filter 'fuzzy' %}selected="selected"{% endifequal %}>{% trans "Fuzzy only" %}</option>
+                                            <option value="?filter=all" {% ifequal rosetta_i18n_filter 'all' %}selected="selected"{% endifequal %}>{% trans "All" %}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </aside>
